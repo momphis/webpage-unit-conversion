@@ -1,0 +1,59 @@
+/*
+ * The classes below are added by or defined in units.js except for the
+ * following:
+ *   unit-show-imp      - added to a container to indicate that Imperial units
+ *                        should show.
+ *   unit-show-imp-only - added to a container to indicate that only Imperial
+ *                        units should show.
+ *   unit-show-si       - added to a container to indicate that SI units should
+ *                        show.
+ *   unit-show-si -only - added to a container to indicate that only SI units
+ *                        should show.
+ */
+
+/* By default, don't show units added by convert units. */
+.unit-auxiliary {
+  display: none
+}
+
+/*
+ * Show SI units when a container has the unit-show-si or unit-show-plus-si
+ * class or similarly for Imperial units.
+ */
+.unit-show-imp      .unit-imp,
+.unit-show-imp-only .unit-imp,
+.unit-show-all      .unit-imp,
+.unit-show-si       .unit-si,
+.unit-show-si-only  .unit-si,
+.unit-show-all      .unit-si {
+  display: inline
+}
+
+/*
+ * Don't show Imperial units (even non-auxiliary ones) when the directive
+ * says to show only the SI or vice-versa.
+ */
+.unit-show-imp-only .unit-si,
+.unit-show-si-only  .unit-imp {
+  display: none
+}
+
+/*
+ * When showing both the primary and auxiliary units, put parentheses around
+ * the auxiliary units and de-emphasize them a bit.
+ */
+.unit-show-all      .unit-auxiliary:before,
+.unit-show-si       .unit-auxiliary.unit-si:before,
+.unit-show-imp      .unit-auxiliary.unit-imp:before {
+  content: " ("
+}
+.unit-show-all      .unit-auxiliary:after,
+.unit-show-si       .unit-auxiliary.unit-si:after,
+.unit-show-imp      .unit-auxiliary.unit-imp:after {
+  content: ")"
+}
+.unit-show-all      .unit-auxiliary,
+.unit-show-si       .unit-auxiliary.unit-si,
+.unit-show-imp      .unit-auxiliary.unit-imp {
+  color: #666
+}

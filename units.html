@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html><head>
+<title>Units Test</title>
+<script src="units.js"></script>
+<style>
+@import url("units.css");
+
+#unit-chooser {
+  font-size: 75%;
+  color: white;
+  background: #444;
+  position: absolute;
+  bottom: .5em;
+  right: .5em
+}
+</style>
+</head>
+
+<body onload="convertUnits(); convertUnits()" class="unit-show-all">
+<h1>Units Test</h1>
+
+<p>Change the display with the drop-down at the bottom right.</p>
+
+<p>When converted units are displayed along with the author's units as
+in the "SI", "Imperial", and "All" options they are displayed in
+parentheses.  Alternatively, the "SI Only" and "Imperial Only" options
+substitute the converted units for the author's units as appropriate.
+These display options are specified entirely in the
+<a href="units.css">CSS source</a>.</p>
+
+<p>See the <a href="units.js">JavaScript source</a> for more detailed
+documentation important caveats.</p>
+
+
+<h2>With units elided</h2>
+<p>I walked &hellip; carrying&hellip; at &hellip; until I was <b>&hellip;</b> above sea level where it was a chilly <i>&hellip;</i> which is about <span class="unit-delta">&hellip;</span> lower than in the valley.</p>
+
+<h2>With SI units</h2>
+<p>I walked 5 km carrying 20 kg at 2 1/2-3 kph until I was <b>380.5</b> m above sea level where it was a chilly 10 <i>centigrade</i> which is about <span class="unit-delta">5 deg C</span> lower than in the valley.</p>
+
+<h2>With Imperial units</h2>
+<p>I walked 3 miles carrying 45 lbs at between 1.5 and 2 mph until I was <b>1250</b> ft above sea level where it was a chilly 50 <i>Fahrenheit</i> which is about <span class="unit-delta">9&#xb0;F</span> lower than in the valley.</p>
+
+<h2>Fun with fractions</h2>
+<p>5/6 km = &#8538; km</p>
+
+<div style="margin: 0; padding: 0; height: 2em; width: 100%; background: #aaa; position: absolute; bottom: 0; left: 0"></div>
+
+<div style="margin: 0; padding: 0; height: .25em; width: 100%; background: #000; position: absolute; bottom: 2em; left: 0"></div>
+
+<select onchange="document.body.className = this.value" id="unit-chooser">
+  <option value="">Original Units</option>
+  <option value="unit-show-si-only" title="Syst&egrave;me international">SI only</option>
+  <option value="unit-show-imp-only" title="British Imperial">Imperial only</option>
+  <option value="unit-show-si" title="Syst&egrave;me international">SI</option>
+  <option value="unit-show-imp" title="British Imperial">Imperial</option>
+  <option value="unit-show-all" selected>All Units</option>
+</select>
+
+</body></html>
